@@ -1,5 +1,8 @@
 package com.funong.newerp.webapp;
 
+import com.funong.newerp.common.result.ResponseResult;
+import com.funong.newerp.dal.entity.MscSendTaskEntity;
+import com.funong.newerp.facade.MscSendTaskFacade;
 import com.funong.newerp.service.logic.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,14 @@ import javax.annotation.Resource;
 public class HelloController {
     @Resource
     HelloService helloService;
+    @Resource
+    MscSendTaskFacade mscSendTaskFacade;
+
+    @RequestMapping(value = "/say2", method = RequestMethod.GET)
+    private MscSendTaskEntity common_get_sample2(@RequestParam(value = "name", required = false) String name) {
+        return mscSendTaskFacade.findById(1);
+    }
+
 
     @RequestMapping(value = "/say", method = RequestMethod.GET)
     private String common_get_sample(@RequestParam(value = "name", required = false) String name) {

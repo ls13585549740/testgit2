@@ -1,13 +1,10 @@
 package com.funong.newerp.service.logic;
 
 import com.alibaba.fastjson.JSON;
-import com.funong.newerp.dal.dao.MscSendTaskDAO;
 import com.funong.newerp.dal.entity.MscSendTaskEntity;
 import com.funong.newerp.facade.MscSendTaskFacade;
-import com.funong.newerp.service.base.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
