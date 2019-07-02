@@ -4,10 +4,12 @@ import com.funong.newerp.service.logic.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
-    @Autowired
+    @Resource
     HelloService helloService;
 
     @RequestMapping(value = "/say", method = RequestMethod.GET)
