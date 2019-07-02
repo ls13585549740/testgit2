@@ -1,6 +1,7 @@
 package com.funong.newerp.dal.base;
 
 import tk.mybatis.mapper.common.Marker;
+import tk.mybatis.mapper.common.base.BaseSelectMapper;
 import tk.mybatis.mapper.common.base.select.*;
 import tk.mybatis.mapper.common.condition.SelectByConditionMapper;
 import tk.mybatis.mapper.common.condition.SelectCountByConditionMapper;

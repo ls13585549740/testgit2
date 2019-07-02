@@ -32,71 +32,68 @@ public abstract class AbstractService<T> implements Service<T> {
     }
 
     @Override
-    @ServiceLog(description = "持久化")
-    public int save(T model) {
-        return dao.insertSelective(model);
+    @ServiceLog(description = "保存/新增记录")
+    public int save(T entity) {
+        return dao.insertSelective(entity);
     }
 
-    @Override
-    @ServiceLog(description = "批量持久化")
-    public int save(List<T> models) {
-        return dao.insertList(models);
-    }
 
     @Override
-    @ServiceLog(description = "通过主鍵刪除")
-    public int deleteById(Long id) {
-        return dao.deleteByPrimaryKey(id);
-    }
-
-    @Override
-    @ServiceLog(description = "通过主鍵批量刪除")
-    public int deleteByIds(String ids) {
-        return dao.deleteByIds(ids);
-    }
-
-    @Override
-    @ServiceLog(description = "更新")
-    public int update(T model) {
-        return dao.updateByPrimaryKeySelective(model);
-    }
-
-    @Override
-    @ServiceLog(description = "通过ID查找")
-    public T findById(Long id) {
+    @ServiceLog(description = "通过ID查找记录")
+    public T findById(Integer id) {
         return dao.selectByPrimaryKey(id);
     }
 
     @Override
-    @ServiceLog(description = "通过多个ID查找")
-    public List<T> findByIds(String ids) {
-        return dao.selectByIds(ids);
+    @ServiceLog(description = "通过实体值查找记录")
+    public List<T> findByEntity(T entity) {
+        return dao.select(entity);
     }
 
     @Override
-    @ServiceLog(description = "根据条件查找")
+    @ServiceLog(description = "根据条件查找记录")
     public List<T> findByCondition(Condition condition) {
         return dao.selectByCondition(condition);
     }
 
     @Override
-    @ServiceLog(description = "获取所有")
+    @ServiceLog(description = "获取所有记录")
     public List<T> findAll() {
         return dao.selectAll();
     }
 
     @Override
-    @ServiceLog(description = "根据自定义条件查找")
-    public T findBy(String fieldName, Object value) throws BusinessException {
-        try {
-            T model = modelClass.newInstance();
-            Field field = modelClass.getDeclaredField(fieldName);
-            field.setAccessible(true);
-            field.set(model, value);
-            return dao.selectOne(model);
-        } catch (ReflectiveOperationException e) {
-            throw new BusinessException(e.getMessage(), e);
-        }
+    @ServiceLog(description = "根据实体值获取记录数量")
+    public int findCountByEntity(T entity) {
+        return dao.selectCount(entity);
     }
+
+    @Override
+    @ServiceLog(description = "根据条件获取记录数量")
+    public int findCountByCondtion(Condition condition) {
+        return dao.selectCountByCondition(condition);
+    }
+
+
+    @Override
+    @ServiceLog(description = "通过ID主鍵刪除记录")
+    public int deleteById(Integer id) {
+        return dao.deleteByPrimaryKey(id);
+    }
+
+
+    @Override
+    @ServiceLog(description = "更新记录")
+    public int update(T entity) {
+        return dao.updateByPrimaryKeySelective(entity);
+    }
+
+    @Override
+    @ServiceLog(description = "根据条件更新记录")
+    public int updateByCondition(T entity, Condition condition) {
+        return dao.updateByCondition(entity, condition);
+    }
+
+
 
 }

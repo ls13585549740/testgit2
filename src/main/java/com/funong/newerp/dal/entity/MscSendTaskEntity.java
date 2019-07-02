@@ -3,6 +3,7 @@ package com.funong.newerp.dal.entity;
 import com.funong.newerp.dal.base.BaseEntity;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -15,6 +16,7 @@ public class MscSendTaskEntity extends BaseEntity {
     private static final long serialVersionUID = 1L;
     private String status;  // 发送状态
     private Date planSendTime;// 计划发送时间
+    @Column(name = "sender")
     private String sender; // 发送者
     private String senderName; // 发送者姓名
     private String receiver; // 接收者

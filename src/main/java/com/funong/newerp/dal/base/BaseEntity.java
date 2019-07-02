@@ -2,6 +2,7 @@ package com.funong.newerp.dal.base;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @Data
 public class BaseEntity implements Serializable {
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
