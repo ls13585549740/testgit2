@@ -4,11 +4,11 @@ import com.funong.newerp.common.result.ResponseResult;
 import com.funong.newerp.dal.entity.MscSendTaskEntity;
 import com.funong.newerp.facade.MscSendTaskFacade;
 import com.funong.newerp.service.logic.HelloService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
+@ResponseResult
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
