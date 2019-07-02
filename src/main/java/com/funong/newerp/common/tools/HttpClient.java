@@ -1,6 +1,6 @@
 package com.funong.newerp.common.tools;
 
-import com.funong.newerp.dal.Base.ResponseDTO;
+import com.funong.newerp.dal.base.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;

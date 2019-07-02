@@ -1,4 +1,4 @@
-package com.funong.newerp.dal.Base;
+package com.funong.newerp.dal.base;
 
 
 import java.io.Serializable;
